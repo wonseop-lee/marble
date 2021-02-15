@@ -9,7 +9,7 @@ export default function NotFound(props) {
             Uh oh, we could not find the page you were looking for!
           </h3>
           <p className="text-muted">
-            <a href="#">Return to Home</a>
+            <a href="#home">Return to Home</a>
           </p>
         </div>
       </div>

@@ -57,7 +57,6 @@ img {
   margin-right: 1rem;
 }
 
-
 .fixed-btm {
   position: fixed;
   bottom: 0;
@@ -78,4 +77,65 @@ img {
 
 .save {
   flex-basis: 82%;
+}
+
+.mini-pic > img {
+  object-fit: cover;
+  width: 50px;
+  height: 30px;
+  margin-right: 0.5rem;
+}
+
+.prof-pic > img {
+  height: 200px;
+  width: 200px;
+}
+
+.prof-pic {
+  padding: 2.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.mini-pic {
+  display: inline;
+  position: relative;
+  top: 8px;
+}
+
+.grid {
+  min-height: 350px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.thumb-container {
+  width: 125px;
+  height: 120px;
+}
+
+.thumb-container:last-child {
+  margin-bottom: 3.5rem;
+}
+
+.thumb-container > img {
+  object-fit: cover;
+  width: 125px;
+  height: 120px;
+}
+
+.fixed-mid {
+  position: sticky;
+  top: 60.19px;
+}
+
+div.header-container.fixed-top {
+  z-index: 1;
+}
+
+.layout-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 1rem;
 }

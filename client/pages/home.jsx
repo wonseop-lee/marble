@@ -15,7 +15,7 @@ export default class Home extends React.Component {
   componentDidMount() {
     fetch('/api/posts')
       .then(res => res.json())
-      .then(posts => this.setState({ posts }))
+      .then(posts => {console.log(posts); return this.setState({ posts });})
   }
 
   render() {
@@ -23,11 +23,12 @@ export default class Home extends React.Component {
       <>
         <Header />
         <>
-          {this.state.posts.map(post => (
-            <div key={post.postId} className="container-margin mar-btm mar-btm-ltl">
-              <Post post={post}/>
-            </div>
-          ))
+          {
+            this.state.posts.map(post => (
+              <div key={post.postId} className="container-margin mar-btm mar-btm-ltl">
+                <Post post={post}/>
+              </div>
+            ))
           }
         </>
         <BottomNav/>
@@ -37,11 +38,14 @@ export default class Home extends React.Component {
 }
 
 function Post(props) {
-  const { postId, description, imageUrl, poster } = props.post;
+  const { postId, description, imageUrl, poster, profilePicUrl } = props.post;
   return (
     <>
       <div className="top mar-btm-ltl">
         <a href={`#profile`} className="mar-right">
+          <div className="mini-pic">
+            <img className="circle" src={profilePicUrl} alt=""/>
+          </div>
           <span>
             {poster}
           </span>
@@ -56,13 +60,12 @@ function Post(props) {
         <a href={`#comment`} className="comment">
           <Icon.ChatRightDots />
         </a>
-        {/* <span>carousel</span> */}
         <span className="save"><Icon.Bookmark onClick={handleSave} /></span>
       </div>
       <div className="content-description">
         <p>Liked by <span>otherAccount_placeholder</span></p>
-        <p>{description}</p>
-        <p>Comment</p>
+        <p><span>{poster}</span>{" "}{description}</p>
+        <p>otherAccount comment_placeholder</p>
         <p>12 hours ago</p>
       </div>
     </>

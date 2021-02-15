@@ -28,7 +28,7 @@ p:last-child {
   font-size: 0.8rem;
 }
 
-.icon-row > span {
+.icon-row > span, .layout-bar > span {
   font-size: 1.6rem;
 }
 
@@ -37,10 +37,23 @@ header > h3 {
   font-weight: 700;
   font-size: 1.8rem;
 }
-.header-container, .footer-container{
+.header-container {
   background-color: #9BB7D4;
+}
+
+.footer-container {
+  background-color: rgba(155, 183, 212, .9);
 }
 
 .icon-notif {
   font-size: 1.6rem;
+}
+
+.circle {
+  border-radius: 50%;
+  border: gray solid 1px;
+}
+
+.fixed-mid {
+  background-color: white
 }

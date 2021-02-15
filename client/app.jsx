@@ -2,6 +2,7 @@ import React from 'react';
 import parseRoute from './lib/parse-route';
 import Home from './pages/home';
 import Profile from './pages/profile';
+import NewPost from './pages/newpost';
 import * as Icon from 'react-bootstrap-icons';
 import NotFound from './pages/not-found';
 
@@ -28,11 +29,11 @@ export default class App extends React.Component {
     if (route.path === 'profile') {
       return <Profile />;
     }
+    if (route.path === 'newpost') {
+      return <NewPost />;
+    }
     // if (route.path === 'posts') {
     //   return <Posts />;
-    // }
-    // if (route.path === 'newpost') {
-    //   return <NewPost />;
     // }
     // if (route.path === 'notifications') {
     //   return <Notif />;
