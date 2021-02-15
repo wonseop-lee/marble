@@ -110,7 +110,7 @@ img {
 }
 
 .thumb-container {
-  width: 125px;
+  width: 33.333333%;
   height: 120px;
 }
 
@@ -120,7 +120,7 @@ img {
 
 .thumb-container > img {
   object-fit: cover;
-  width: 125px;
+  /* width: 125px; */
   height: 120px;
 }
 
@@ -138,4 +138,9 @@ div.header-container.fixed-top {
   display: flex;
   justify-content: space-around;
   padding-bottom: 1rem;
+}
+
+.body-container {
+  height: 400px;
+  background-color: gray;
 }

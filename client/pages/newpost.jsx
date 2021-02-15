@@ -26,10 +26,15 @@ export default function NewPost() {
           <h3>New Post</h3>
           <nav>
             <p>
-              <span>SAVE</span>
+              <span style={{color: 'red'}}>POST</span>
             </p>
           </nav>
         </header>
+      </div>
+      <div className="body-container">
+        <div className="img-preview"></div>
+        <div className="new-file"></div>
+        <div className="caption"></div>
       </div>
       <BottomNav />
     </>
