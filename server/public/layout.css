@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+}
+
+.border {
+  border: solid black 1px;
+}
+
+body, h3, p {
+  margin: 0;
+}
+
+p {
+  margin: 0.5rem 0rem;
+}
+
+.width-full {
+  width: 100%;
+}
+
+.pad {
+  padding: 0.1rem 0;
+}
+
+img {
+  width: 100%;
+}
+
+.container-margin {
+  margin: 0.5rem 1rem;
+}
+
+.mar-btm-ltl {
+  margin-bottom: 1rem;
+}
+
+.mar-btm:nth-last-child(2) {
+  margin-bottom: 4rem;
+}
+
+.btm-nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-sp-bt {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon-row {
+  display: flex;
+  text-align: right;
+}
+
+.mar-right {
+  margin-right: 1rem;
+}
+
+
+.fixed-btm {
+  position: fixed;
+  bottom: 0;
+}
+
+.fixed-top {
+  position: sticky;
+  top: 0rem;
+}
+
+.heart {
+  flex-basis: 5%;
+}
+
+.comment {
+  flex-basis: 13%;
+}
+
+.save {
+  flex-basis: 82%;
+}

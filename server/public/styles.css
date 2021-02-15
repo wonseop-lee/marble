@@ -1,0 +1,46 @@
+* {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.color {
+  color: #9BB7D4;
+}
+
+a {
+  font-size: 1.5rem;
+  color: black;
+}
+
+p > span {
+  font-weight: bold;
+}
+
+a > span {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+nav {
+  padding-top: 0.4rem;
+}
+
+p:last-child {
+  font-size: 0.8rem;
+}
+
+.icon-row > span {
+  font-size: 1.6rem;
+}
+
+header > h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+.header-container, .footer-container{
+  background-color: #9BB7D4;
+}
+
+.icon-notif {
+  font-size: 1.6rem;
+}
