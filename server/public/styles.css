@@ -57,3 +57,7 @@ header > h3 {
 .fixed-mid {
   background-color: white
 }
+
+.modal {
+  display: hidden;
+}

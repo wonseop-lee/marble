@@ -2,11 +2,13 @@ require('dotenv/config');
 const express = require('express');
 const staticMiddleware = require('./static-middleware');
 const errorMiddleware = require('./error-middleware');
+const uploadsMiddleware = require('./uploads-middleware');
 const ClientError = require('./client-error');
 const db = require('./db');
 
 const app = express();
-
+// const jsonMiddleware = express.json();
+// app.use(jsonMiddleware);
 app.use(staticMiddleware);
 
 app.get('/api/posts', (req, res, next) => {
@@ -51,9 +53,29 @@ app.get('/api/user/:userId', (req, res, next) => {
     })
     .catch(err => next(err));
 });
-// app.post('/api/uploads', (req, res, next) => {
 
-// });
+// handles fetch request to new post
+app.post('/api/uploads', uploadsMiddleware, (req, res, next) => {
+  const { caption } = req.body;
+  if (!caption) {
+    throw new ClientError(400, 'caption is a required field');
+  }
+  const url = `/images/${req.file.filename}`;
+  const sql = `
+    insert into "posts" ("userId", "description", "imageUrl")
+    values (1, $1, $2)
+    returning *
+  `;
+  const params = [caption, url];
+  db.query(sql, params)
+    .then(result => {
+      if (!result.rows[0]) {
+        throw new ClientError(400, `failed to upload`);
+      }
+      res.json(result.rows);
+    })
+    .catch(err => next(err));
+});
 
 // app.put('/api/posts/:postId', (req, res, next) => {
   // const postId = parseInt(req.params.postId, 10);

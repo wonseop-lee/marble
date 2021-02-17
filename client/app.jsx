@@ -21,6 +21,7 @@ export default class App extends React.Component {
     });
   }
 
+  // hash routes pages
   renderPage() {
     const { route } = this.state;
     if (route.path === 'home') {

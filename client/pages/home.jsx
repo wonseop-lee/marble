@@ -4,21 +4,34 @@ import Header from '../components/header'
 import * as Icon from 'react-bootstrap-icons';
 // import Posts from './posts';
 
+// To render home screen
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: []
+      posts: [],
+      modalClicked: false
     };
+    this.handleModal = this.handleModal.bind(this);
   }
 
   componentDidMount() {
     fetch('/api/posts')
-      .then(res => res.json())
+      .then(res => res.json()) // delete below upon completion
       .then(posts => {console.log(posts); return this.setState({ posts });})
   }
 
+  // to display modal window
+  handleModal() {
+    if (!this.modalClicked) {
+      this.setState({modalClicked: true});
+    } else {
+      this.setState({modalClicked: false});
+    }
+  }
+
   render() {
+    const {modalClicked} = this.state;
     return (
       <>
         <Header />
@@ -37,6 +50,7 @@ export default class Home extends React.Component {
   }
 }
 
+// to render individual post within home page
 function Post(props) {
   const { postId, description, imageUrl, poster, profilePicUrl } = props.post;
   return (
@@ -51,6 +65,7 @@ function Post(props) {
           </span>
         </a>
         <span onClick={handleFollow}>Follow</span>
+        {/* <Icon.List onClick={handleModal}/> */}
       </div>
       <div className="img mar-btm-ltl">
         <img src={imageUrl} alt="user image" />
@@ -68,8 +83,15 @@ function Post(props) {
         <p>otherAccount comment_placeholder</p>
         <p>12 hours ago</p>
       </div>
+      {/* <div className={`${this.modalClicked ? "" : "hidden"}`}>
+        <button onClick={handleDelete}>DELETE</button>
+        <button>CANCEL</button>
+      </div> */}
     </>
   );
+}
+function handleDelete() {
+  console.log('Delete');
 }
 
 function handleFollow() {

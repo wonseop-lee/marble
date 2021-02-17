@@ -20,9 +20,9 @@ CREATE TABLE "public"."users" (
 CREATE TABLE "public"."posts" (
 	"postId" serial NOT NULL,
 	"userId" integer NOT NULL,
-	-- "createdAt" timestamptz NOT NULL,
 	"description" TEXT NOT NULL,
   "imageUrl" text not null,
+	-- "createdAt" timestamptz(6) not null default now()
 	CONSTRAINT "posts_pk" PRIMARY KEY ("postId")
 ) WITH (
   OIDS=FALSE

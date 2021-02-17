@@ -24,7 +24,7 @@ export default class Profile extends React.Component {
   }
 
   render() {
-    let tempUrl = ''; //replace after authentication
+    let tempUrl = ''; //replace this section after authentication
     let tempName = '';
     if (this.state.user[0]) {
       tempUrl = this.state.user[0].profilePicUrl;
